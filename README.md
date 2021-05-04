@@ -7,4 +7,4 @@ A simple Unix shell implementation that includes some basic shell features. Thes
   ・ support for running processes in foreground or background,   
   ・ foreground only mode enabled by SIGSTOP signal, input and output redirection,  
   ・ variable expansion for one specific variable.  
-  ・ Allow users to modify the commands
+  ・ Allow users to modify the commands.
