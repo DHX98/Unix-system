@@ -15,7 +15,11 @@
 
 void call_cd(char** array, int count);
 void call_status(char** array, int count);
-
-
+void call_mkdir(char** array, int count);
+void call_wc(char** array, int count);
+void call_cat(char** array, int count);
+void call_comment(char** array, int count);
+void call_ls(char** array, int count);
+void call_exit();
 
 #endif
