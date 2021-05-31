@@ -1,0 +1,108 @@
+#!/bin/bash
+
+echo "PRE-SCRIPT INFO"
+echo " Script PID: $$"
+
+./small_shell <<'___EOF___'
+echo BEGINNING TEST SCRIPT
+echo
+echo --------------------
+echo Using comment 
+#THIS COMMENT SHOULD DO NOTHING
+echo
+echo
+echo --------------------
+echo ls 
+ls
+echo
+echo
+echo --------------------
+echo ls out junk
+ls > junk
+echo
+echo
+echo --------------------
+echo cat junk 
+cat junk
+echo
+echo
+echo --------------------
+echo wc in junk 
+wc < junk
+echo
+echo
+echo --------------------
+echo wc in junk out junk2; cat junk2 
+wc < junk > junk2
+cat junk2
+echo
+echo
+echo --------------------
+echo test -f badfile 
+test -f badfile
+status &
+echo
+echo
+echo --------------------
+echo wc in badfile 
+wc < badfile
+echo
+echo
+echo --------------------
+echo badfile 
+badfile
+echo
+echo
+echo --------------------
+echo sleep 100 background 
+sleep 100 &
+echo
+echo
+echo --------------------
+echo pkill -signal SIGTERM sleep
+
+pkill sleep
+echo
+echo
+echo --------------------
+echo sleep 1 background 
+sleep 1 &
+sleep 1
+echo
+echo
+echo --------------------
+echo pwd
+pwd
+echo
+echo
+echo --------------------
+echo cd
+cd
+echo
+echo
+echo --------------------
+echo pwd 
+pwd
+echo
+echo
+echo --------------------
+echo mkdir testdir$$
+mkdir testdir$$
+echo
+echo
+echo --------------------
+echo cd testdir$$
+cd testdir$$
+echo
+echo
+echo --------------------
+echo pwd 
+pwd
+echo --------------------
+kill -SIGTSTP $$
+date
+sleep 5 &
+date
+kill -SIGTSTP $$
+exit
+___EOF___
